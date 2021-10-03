@@ -53,10 +53,47 @@ class LeftSide extends StatelessWidget {
 }
 
 class RightSide extends StatelessWidget {
+  static final buttonsColor = WindowButtonColors(
+    iconNormal: Color(0xff805306),
+    mouseOver: Color(0xfff6a00c),
+    mouseDown: Color(0xff805306),
+    iconMouseOver: Color(0xff805306),
+    iconMouseDown: Color(0xffffd500),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(),
+      child: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFFFFD500), Color(0xFFF6A00C)],
+            stops: [0.0, 1.0],
+          ),
+        ),
+        child: Column(
+          children: [
+            WindowTitleBarBox(
+              child: Row(
+                children: [
+                  Expanded(
+                    child: MoveWindow(),
+                  ),
+                  Row(
+                    children: [
+                      MinimizeWindowButton(colors: buttonsColor),
+                      MaximizeWindowButton(colors: buttonsColor),
+                      CloseWindowButton(),
+                    ],
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
