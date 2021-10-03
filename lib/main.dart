@@ -14,9 +14,23 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Container(),
+      home: TitleBarPage(),
       title: 'Flutter Desktop Title Bar',
       debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+class TitleBarPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Row(
+        children: [
+          Container(),
+          Container(),
+        ],
+      ),
     );
   }
 }
