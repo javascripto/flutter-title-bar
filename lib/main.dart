@@ -25,12 +25,38 @@ class TitleBarPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(
-        children: [
-          Container(),
-          Container(),
-        ],
+      body: WindowBorder(
+        width: 1,
+        color: Color(0xff805306),
+        child: Row(
+          children: [
+            LeftSide(),
+            RightSide(),
+          ],
+        ),
       ),
+    );
+  }
+}
+
+class LeftSide extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 200,
+      child: Container(
+        color: Color(0xFFF6A00C),
+        child: Column(children: [WindowTitleBarBox(child: MoveWindow())]),
+      ),
+    );
+  }
+}
+
+class RightSide extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(),
     );
   }
 }
